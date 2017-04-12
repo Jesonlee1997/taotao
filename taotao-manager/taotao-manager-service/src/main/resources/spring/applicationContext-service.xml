@@ -13,6 +13,6 @@
     <!--注册中心的地址-->
     <dubbo:registry protocol="zookeeper" address="192.168.56.100:2181"/>
     <dubbo:protocol name="dubbo" port="20880"/>
-    <!--声明需要暴露的服务接口-->
-    <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl"/>
+    <!--声明需要暴露的服务接口 超时设置为5分钟，debug时可用-->
+    <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" timeout="300000"/>
 </beans>
