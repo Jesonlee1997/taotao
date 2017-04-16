@@ -15,6 +15,7 @@ public class PageController {
     public String index() {
         return "index";
     }
+
     @RequestMapping("/{page}")
     public String showPage(@PathVariable String page) {
         return page;
