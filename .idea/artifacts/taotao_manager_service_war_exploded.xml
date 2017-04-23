@@ -21,7 +21,8 @@
           <element id="archive" name="taotao-manager-interface-0.0.1-SNAPSHOT.jar">
             <element id="module-output" name="taotao-manager-interface" />
           </element>
-          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:3.4.2" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:4.1.1" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.4.RELEASE" />
