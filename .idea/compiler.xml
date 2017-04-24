@@ -15,6 +15,9 @@
         <module name="taotao-manager-service" />
         <module name="taotao-manager-web" />
         <module name="taotao-portal-web" />
+        <module name="taotao-search-interface" />
+        <module name="taotao-search-service" />
+        <module name="taotao-search-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +33,10 @@
       <module name="taotao-manager-web" target="1.8" />
       <module name="taotao-parent" target="1.8" />
       <module name="taotao-portal-web" target="1.8" />
+      <module name="taotao-search" target="1.8" />
+      <module name="taotao-search-interface" target="1.8" />
+      <module name="taotao-search-service" target="1.8" />
+      <module name="taotao-search-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
