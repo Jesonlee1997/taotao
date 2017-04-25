@@ -1,6 +1,6 @@
 package com.taotao.portal.controller;
 
-import com.taota.portal.pojo.AD1Node;
+import com.taotao.portal.pojo.AD1Node;
 import com.taotao.common.utils.JsonUtils;
 import com.taotao.content.service.ContentService;
 import com.taotao.pojo.TbContent;

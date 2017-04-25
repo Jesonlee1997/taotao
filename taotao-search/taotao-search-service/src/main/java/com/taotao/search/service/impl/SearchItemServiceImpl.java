@@ -38,12 +38,11 @@ public class SearchItemServiceImpl implements SearchItemService{
                 //向文档中添加域
                 document.addField("id", searchItem.getId());
                 document.addField("item_title", searchItem.getTitle());
-                document.addField("item_sell_point", searchItem.getSell_point());
+                document.addField("item_sell_point", searchItem.getSellPoint());
                 document.addField("item_price", searchItem.getPrice());
                 document.addField("item_image", searchItem.getImage());
-                document.addField("item_category_name", searchItem.getCategory_name());
-                document.addField("item_desc", searchItem.getItem_desc());
-                document.addField("item_category_name", searchItem.getCategory_name());
+                document.addField("item_category_name", searchItem.getCategoryName());
+                document.addField("item_desc", searchItem.getItemDesc());
                 //把文档写入索引库
                 solrServer.add(document);
             }

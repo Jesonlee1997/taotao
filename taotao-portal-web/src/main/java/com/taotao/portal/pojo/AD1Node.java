@@ -1,4 +1,4 @@
-package com.taota.portal.pojo;
+package com.taotao.portal.pojo;
 
 /**
  * Created by JesonLee
