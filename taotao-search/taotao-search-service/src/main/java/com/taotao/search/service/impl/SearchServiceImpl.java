@@ -20,7 +20,7 @@ public class SearchServiceImpl implements SearchService {
     private SearchDao searchDao;
 
     @Override
-    public SearchResult search(String queryString, int page, int rows){
+    public SearchResult search(String queryString, int page, int rows) throws SolrServerException {
         //根据查询条件拼装查询对象
         SolrQuery query = new SolrQuery();
         query.setQuery(queryString);
@@ -42,11 +42,8 @@ public class SearchServiceImpl implements SearchService {
 
         //调用Dao进行查询
         SearchResult searchResult = null;
-        try {
-            searchResult = searchDao.search(query);
-        } catch (SolrServerException e) {
-            e.printStackTrace();
-        }
+
+        searchResult = searchDao.search(query);
         long recordCount = searchResult.getRecordCount();
         long pages = recordCount / rows;
         if (recordCount % rows > 0) {
