@@ -5,13 +5,17 @@ import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.IDUtils;
+import com.taotao.common.utils.JsonUtils;
+import com.taotao.jedis.JedisClient;
 import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemDesc;
 import com.taotao.pojo.TbItemExample;
 import com.taotao.service.ItemService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
@@ -39,10 +43,42 @@ public class ItemServiceImpl implements ItemService {
     @Resource(name = "itemAddTopic")
     private Destination destination;
 
+    @Autowired
+    private JedisClient jedisClient;
+
+    @Value("${ITEM_INFO}")
+    private String ITEM_INFO;
+
+    @Value("${ITEM_EXPIRE}")
+    private Integer ITEM_EXPIRE;
+
     @Override
     public TbItem getItemById(long itemId) {
-        TbItem tbItem = itemMapper.selectByPrimaryKey(itemId);
-        return tbItem;
+        //查询数据库之前先查询缓存
+        String key = ITEM_INFO+ ":"+itemId+":BASE";
+        try {
+            String json = jedisClient.get(key);
+            if (StringUtils.isNotBlank(json)) {
+                return JsonUtils.jsonToPojo(json, TbItem.class);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //缓存中没有查询数据库
+        TbItem item = itemMapper.selectByPrimaryKey(itemId);
+
+        //把查询结果添加到缓存
+        try {
+
+            jedisClient.set(key, JsonUtils.objectToJson(item));
+
+            //设置过期时间提高缓存利用率
+            jedisClient.expire(key, ITEM_EXPIRE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 
     @Override
@@ -91,5 +127,34 @@ public class ItemServiceImpl implements ItemService {
         jmsTemplate.send(destination, session -> session.createTextMessage(String.valueOf(itemId)));
 
         return TaotaoResult.ok();
+    }
+
+    @Override
+    public TbItemDesc getItemDescById(long itemId) {
+        //查询数据库之前先查询缓存
+        String key = ITEM_INFO+ ":"+itemId+":DESC";
+        try {
+            String json = jedisClient.get(key);
+            if (StringUtils.isNotBlank(json)) {
+                return JsonUtils.jsonToPojo(json, TbItemDesc.class);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //缓存中没有查询数据库
+        TbItemDesc itemDesc = itemDescMapper.selectByPrimaryKey(itemId);
+
+        //把查询结果添加到缓存
+        try {
+
+            jedisClient.set(key, JsonUtils.objectToJson(itemDesc));
+
+            //设置过期时间提高缓存利用率
+            jedisClient.expire(key, ITEM_EXPIRE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return itemDesc;
     }
 }
