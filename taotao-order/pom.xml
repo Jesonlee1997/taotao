@@ -12,8 +12,27 @@
     <packaging>pom</packaging>
     <modules>
         <module>taotao-order-interface</module>
+        <module>taotao-order-service</module>
     </modules>
     <artifactId>taotao-order</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <path>/</path>
+                    <port>8090</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
