@@ -10,7 +10,7 @@
         <constructor-arg name="host" value="192.168.56.152"/>
         <constructor-arg name="port" value="6379"/>
     </bean>
-    <bean id="jedisClientPool" class="com.taotao.JedisClientPool"/>
+    <bean id="jedisClientPool" class="com.taotao.jedis.JedisClientPool"/>
 
     <!--redis 集群-->
     <!--<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
