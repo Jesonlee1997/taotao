@@ -11,7 +11,7 @@
 <body>
 <div class="w">
     <div id="logo">
-    	<a href="http://localhost:8082" clstag="passport|keycount|login|01">
+    	<a href="http://search.taotao.com" clstag="passport|keycount|login|01">
     		<img src="/images/taotao-logo.gif" alt="淘淘" width="170" height="60"/>
     	</a><b></b>
    	</div>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="free-regist">
-            <span><a href="/user/showRegister" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
+            <span><a href="/user/register" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
         </div>
     </div>
 </form>
@@ -79,7 +79,7 @@
 					if (data.status == 200) {
 						alert("登录成功！");
 						if (redirectUrl == "") {
-							location.href = "http://localhost:8082";
+							location.href = "http://search.taotao.com";
 						} else {
 							location.href = redirectUrl;
 						}

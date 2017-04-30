@@ -4,7 +4,6 @@ import com.taotao.common.pojo.SearchResult;
 import com.taotao.search.dao.SearchDao;
 import com.taotao.search.service.SearchService;
 import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class SearchServiceImpl implements SearchService {
     private SearchDao searchDao;
 
     @Override
-    public SearchResult search(String queryString, int page, int rows) throws SolrServerException {
+    public SearchResult search(String queryString, int page, int rows) throws Exception {
         //根据查询条件拼装查询对象
         SolrQuery query = new SolrQuery();
         query.setQuery(queryString);

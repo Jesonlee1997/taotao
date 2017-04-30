@@ -23,6 +23,11 @@
             <artifactId>taotao-order-interface</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-sso-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <!-- Spring -->
         <dependency>
@@ -108,6 +113,9 @@
                 <configuration>
                     <path>/</path>
                     <port>8091</port>
+                    <url>http://192.168.56.160:8080/manager/text</url>
+                    <username>root</username>
+                    <password>ljsclx</password>
                 </configuration>
             </plugin>
         </plugins>

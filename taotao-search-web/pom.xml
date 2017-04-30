@@ -108,6 +108,9 @@
                 <configuration>
                     <path>/</path>
                     <port>8085</port>
+                    <url>http://192.168.56.159:8082/manager/text</url>
+                    <username>root</username>
+                    <password>ljsclx</password>
                 </configuration>
             </plugin>
         </plugins>
