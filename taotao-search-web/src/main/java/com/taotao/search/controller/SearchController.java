@@ -27,7 +27,8 @@ public class SearchController {
     @RequestMapping("/search")
     public String search(@RequestParam("q") String queryString,
                          @RequestParam(defaultValue = "1") Integer page,
-                         Model model) throws Exception {
+                         Model model) throws Exception
+    {
         //把查询条件进行转码，解决get乱码问题
         queryString = new String(queryString.getBytes("iso8859-1"), "utf-8");
         SearchResult result = searchService.search(queryString, page, SEARCH_RESULT_ROWS);

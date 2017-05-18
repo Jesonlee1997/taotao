@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 商品类别服务
  * Created by JesonLee
  * on 2017/4/12.
  */

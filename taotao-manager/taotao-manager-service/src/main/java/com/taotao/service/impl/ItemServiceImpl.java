@@ -25,6 +25,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 商品服务
  * Created by JesonLee
  * on 2017/4/11.
  */

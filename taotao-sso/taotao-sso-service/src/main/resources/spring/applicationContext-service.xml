@@ -9,11 +9,11 @@
 
     <!--发布dubbo服务-->
     <!--提供方应用信息，用于计算依赖关系-->
-    <dubbo:application name="taotao-content" />
+    <dubbo:application name="taotao-sso" />
     <!--注册中心的地址-->
     <dubbo:registry protocol="zookeeper" address="192.168.56.151:2181"/>
     <dubbo:protocol name="dubbo" port="20883"/>
     <!--声明需要暴露的服务接口 超时设置为5分钟，debug时可用-->
-    <dubbo:service interface="com.taotao.sso.service.UserService" ref="userServiceImpl" timeout="300000"/>
+    <dubbo:service interface="com.taotao.sso.service.UserService" ref="userServiceImpl" timeout="3000"/>
 
 </beans>

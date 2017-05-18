@@ -199,5 +199,5 @@
 <!--[if (gte IE 8)&(lt IE 10)]>
 <script src="/js/file-upload/cors/jquery.xdr-transport.js"></script>
 <![endif]-->
-</body> 
+</body>
 </html>

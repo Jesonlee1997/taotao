@@ -136,6 +136,7 @@ public class testActiveMq {
         //4.使用Session对象创建一个Destination对象，queue或topic
         Topic topic = session.createTopic("test-topic");
 
+
         MessageConsumer consumer = session.createConsumer(topic);
 
         consumer.setMessageListener(message -> {
