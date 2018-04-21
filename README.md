@@ -66,4 +66,4 @@ hash的field用来存储商品id和商品信息的键值对。（原本商品的
 
 
 
-[1]:http://blog.jesonlee.me/static/user/image/taotao-architecture.png
+[1]:http://blog.jesonlee.top/static/user/image/taotao-architecture.png
